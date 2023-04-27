@@ -1,0 +1,53 @@
+<app-header></app-header>
+<div class="container" style="background-image: url('../../assets/bg1.webp');background-size: cover;">
+    <div class="row justify-content-center mt-2 pt-5  ">
+        <div class="col-6">
+            <form class="form" [formGroup]="addUserForm" >
+              
+              <h3 style="text-align: center;color:  #22215d;;">Add User</h3>
+           
+             
+              <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label">Name</label>
+                <input type="text" class="form-control" id="formGroupExampleInput2" formControlName="name"   >
+                <div *ngIf="addUserForm.get('name')?.invalid && addUserForm.get('name')?.touched">
+                  <div *ngIf="addUserForm.get('name')?.hasError('required')">Username is required</div>
+                  <div *ngIf="addUserForm.get('name')?.hasError('minlength')">Username must be at least 4 characters long</div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="formGroupExampleInput3" class="form-label">Email</label>
+                <input type="text" class="form-control" id="formGroupExampleInput3" formControlName="email"  >
+                <div *ngIf="addUserForm.get('email')?.invalid && addUserForm.get('email')?.touched">
+                  <div *ngIf="addUserForm.get('email')?.hasError('required')">Email is required</div>
+                  <!-- <div *ngIf="addUserForm.get('email')?.hasError('email')">Invalid email address</div> -->
+                  <div *ngIf="addUserForm.get('email')?.hasError('pattern')">Invalid email address</div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="formGroupExampleInput4" class="form-label">Password</label>
+                <input type="text" class="form-control" id="formGroupExampleInput4"  formControlName="password"  >
+                <div *ngIf="addUserForm.get('password')?.invalid && addUserForm.get('password')?.touched">
+                  <div *ngIf="addUserForm.get('password')?.hasError('required')">Password is required</div>
+                  <div *ngIf="addUserForm.get('password')?.hasError('minlength')">Password must be at least 8 characters long</div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="formGroupExampleInput4" class="form-label">Role</label>
+                
+                    <select formControlName="role">
+                      <option value="Trainer Head">Trainer Head</option>
+                      <option value="Placement Officer">Placement Officer</option>
+                    </select>
+                    
+                  
+              </div>
+              
+              
+             <br>
+              <button type="submit" class="btn btn-success" (click)="adduser()">Add</button>
+  
+            </form>
+        </div>
+    </div>
+  </div>

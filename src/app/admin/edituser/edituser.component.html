@@ -1,0 +1,40 @@
+<app-header></app-header>
+<div class="container" style="background-image: url('../../assets/bg1.webp');background-size: cover;">
+    <div class="row justify-content-center mt-2 pt-5  ">
+        <div class="col-6">
+            <form class="form" [formGroup]="EditUserForm" >
+              
+              <h3 style="text-align: center;color:  #22215d;;">Edit User</h3>
+           
+             
+              <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label">Name</label>
+                <input type="text" class="form-control" id="formGroupExampleInput2" formControlName="name"   >
+              </div>
+              <div class="mb-3">
+                <label for="formGroupExampleInput3" class="form-label">Email</label>
+                <input type="text" class="form-control" id="formGroupExampleInput3" formControlName="email"  >
+              </div>
+              <!-- <div class="mb-3">
+                <label for="formGroupExampleInput4" class="form-label">Password</label>
+                <input type="text" class="form-control" id="formGroupExampleInput4"  formControlName="password"  >
+              </div> -->
+              <div class="mb-3">
+                <label for="formGroupExampleInput4" class="form-label">Role</label>
+                
+                    <select formControlName="role">
+                      <option value="Trainer Head">Trainer Head</option>
+                      <option value="Placement Officer">Placement Officer</option>
+                    </select>
+                    
+                  
+              </div>
+              
+              
+             <br>
+              <button type="submit" class="btn btn-dark" (click)="Userupdate()" >Update</button>
+  
+            </form>
+        </div>
+    </div>
+  </div>

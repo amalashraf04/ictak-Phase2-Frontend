@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Dashboard Template · Bootstrap v5.0</title>
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#"  >ICTAK Learner Tracker</a>
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="navbar-nav">
+    <div class="nav-item text-nowrap">
+      <button class="btn btn-outline-secondary" type="button" (click)="logout()">Logout</button>
+    </div>
+  </div>
+</header>
+
+<div class="container-fluid">
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="position-sticky pt-3">
+        <a routerLink="/users"><i class="bi bi-arrow-left"></i></a>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/add"  >
+              <span data-feather="home"></span>
+               Add Learner
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"  >
+              <span data-feather="file"></span>
+               Course Details
+            </a>
+          </li>    
+          <li class="nav-item">
+            <a class="nav-link" href="#" >
+              <span data-feather="users"></span>
+                About
+            </a>
+          </li>        
+        </ul>      
+      </div>
+    </nav>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2" style="color: rgb(84, 83, 83);"  >DASHBOARD</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group me-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/add">ADD LEARNER</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary"routerLink="/csv">ADD CSV FILE</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="container">
+        <h3 class="  text-center mt-5"  id="dboard" >LEARNER DATA</h3>   
+      <table class="table table-striped  mt-5">
+        <thead>
+          <tr>
+            <th scope="col">Learner Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Course Name</th>
+            <th scope="col">Project</th>
+            <th scope="col">Batch</th>
+            <th scope="col">Course Status</th>
+            <th scope="col">Placement Status</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+      
+          </tr>
+        </thead>
+        <tbody>
+          <tr   *ngFor="let item of learner" >
+            <th class="tabf" scope="row" >{{item.learnerid}}</th>
+            <td class="tabf">{{item.name}}</td>
+            <td class="tabf">{{item.course}}</td>
+            <td class="tabf">{{item. project}}</td>
+            <td class="tabf">{{item. batch}}</td>
+            <td class="tabf">{{item. coursestatus}}</td>
+            <td class="tabf">{{item. placementstatus}}</td>
+            <td class="tabf"><i class="bi bi-pencil-square text"(click)="editlearner(item._id)"></i></td>
+            <td class="tabf"><i class="bi bi-trash3-fill text" (click)="deletelearner(item._id)"></i></td> 
+          </tr>   
+        </tbody>
+      </table>
+      </div> 
+
+      <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+   
+    </main>
+  </div>
+</div>
+
+  </body>
+</html>
+
