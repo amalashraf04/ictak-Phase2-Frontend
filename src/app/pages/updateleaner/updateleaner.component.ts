@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder,Validators } from '@angular/forms';
+import { FormBuilder,FormControl,FormGroup,Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BackendService } from 'src/app/backend.service';
 
@@ -10,53 +10,51 @@ import { BackendService } from 'src/app/backend.service';
 })
 export class UpdateleanerComponent {
 
-  learnerId:any
-  updateForm:any
-  current:any
+  updateForm: any = new FormGroup({
+    'learnerid': new FormControl(''),
+    'name': new FormControl(''),
+    'course': new FormControl(''),
+    'project': new FormControl(''),
+    'batch': new FormControl(''),
+    'coursestatus': new FormControl(''),
+    'placementstatus': new FormControl('')
+  })
 
   
    
   constructor(private fb:FormBuilder, private api:BackendService,
    private router:Router,private route:ActivatedRoute){
 
-   this.updateForm = this.fb.group(
-    {
-      learnerid: ['', Validators.required],
-      name: ['', Validators.required],
-      course: ['', Validators.required],
-      project: ['', Validators.required],
-      batch: ['', Validators.required],
-      coursestatus: ['', Validators.required],
-      placementstatus: ['', Validators.required]
-    })
+  
   }
 
-  ngOnInit() {
-    this.getcurrent()
-
+  ngOnInit(): void {
+    console.log(this.route.snapshot.params['id'])
+        this.api.getcurrent(this.route.snapshot.params['id']).subscribe((result=>{
+          this.updateForm = new FormGroup({
+            'learnerid': new FormControl((result as any).learnerid),
+            'name': new FormControl((result as any).name),
+            'course': new FormControl((result as any).course),
+            'project': new FormControl((result as any).project),
+            'batch': new FormControl((result as any).batch),
+            'coursestatus': new FormControl((result as any).coursestatus),
+            'placementstatus': new FormControl((result as any).placementstatus)
+          })
+        }))
   }
 
   updateLearner() {
-    console.log("Clicked update button"); // Add a console.log statement to check if the button click is registering
-    this.learnerId = this.route.snapshot.params['id'];
-    let learner = this.updateForm.value;
-    // this.api.updateBook(this.bookId, book).Observable<Object>.subscribe((res: any) => {
-    this.api.updateLearner(this.learnerId, learner).subscribe((res: any)=>{
-    console.log(res);
-      this.router.navigate(['/learners']);
-    }) 
-  }
+    
+
+    this.api.updateLearner(this.updateForm.value,this.route.snapshot.params['id']).subscribe((result)=>{
+      //console.log(result)
+      alert(' User Data Updated ')
+       this.router.navigate(['/learners'])
+  })
+}
 
 
-  getcurrent() {
-    this.learnerId = this.route.snapshot.params['id'];
-    this.api.getcurrent(this.learnerId).subscribe((res:any)=>{
-      console.log(res)
-      this.current=res.data
-      
-
-    })
-  }
+ 
   
 
 }

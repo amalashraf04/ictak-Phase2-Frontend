@@ -40,7 +40,8 @@ export class BackendService {
   }
 
 
-  updateLearner(id:any,learner:any){
+  updateLearner(learner:any,id:any){
+    console.log(id)
   return this.http.put(`${this.api}/api/${id}`,learner)
 }
   
@@ -55,7 +56,7 @@ deletelearner(id:any){
 
  getcurrent(id:any){
   console.log(`backend service id is ${id}`)
-  return this.http.get(`${this.api}/api/${id}`)
+ return this.http.get(`${this.api}/api/${id}`)
 }
 gettoken() :boolean{
   return !!localStorage.getItem('token')
