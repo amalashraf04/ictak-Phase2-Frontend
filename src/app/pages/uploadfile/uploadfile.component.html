@@ -1,0 +1,14 @@
+<app-header></app-header>
+<div  class="screen" style="background-image: url('../../assets/acqua.jpg');background-size: cover;">
+    <form >
+        <h3  style="color: white;text-align:center;">UPLOAD FILE</h3>
+        
+            <!-- <input   #singleInput type="file"  name="csv"  (change)="selectfile($event)" >  <br> <br>
+            <button type="submit" class="btn btn-success" style="justify-content: center;" (click)="addcsv()">Submit</button> -->
+            <div class="input-group mb-3" style="margin-top: 100px;">
+                <input  #singleInput type="file" name="csv" class="form-control" id="inputGroupFile02 " (change)="selectfile($event)"><br>
+              </div>
+              <button type="submit" class="btn btn-primary"  (click)="addcsv()">Upload</button> 
+          
+    </form>
+</div>

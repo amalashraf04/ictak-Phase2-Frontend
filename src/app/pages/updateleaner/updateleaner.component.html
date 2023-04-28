@@ -1,0 +1,83 @@
+<app-learner-header></app-learner-header>
+<div class="screen" style="background-image: url('../../../assets/bg1.webp');background-size: cover;" >
+
+<div class="container">
+  <div class="row justify-content-center mt-2 pt-5  ">
+      <div class="col-6">
+          <form  [formGroup]="updateForm" >
+            
+            <h3 style="text-align: center;color: rgb(8, 0, 0);">UPDATE LEARNER</h3>
+         
+            <div class="mb-3">
+              <label for="formGroupExampleInput" class="form-label">Learner Id</label>
+              <input type="text" class="form-control" id="formGroupExampleInput"formControlName="learnerid" placeholder="" >
+            </div>
+            <div class="mb-3">
+              <label for="formGroupExampleInput2" class="form-label">Name</label>
+              <input type="text" class="form-control" id="formGroupExampleInput2" formControlName="name" placeholder=""  >
+            </div>
+            <div class="mb-3">
+              <label for="formGroupExampleInput" class="form-label">Course Name</label>
+              <select class="form-select" aria-label="Default select example" formControlName="course">
+                <option selected></option>
+                <option value="FSD">FSD</option>
+                <option value="DSA">DSA</option>
+                <option value="ML-AI">ML-AI</option>
+                <option value="RPA">RPA</option>
+                <option value="ST">ST</option>
+                <option value="CSA">CSA</option>
+              </select>
+            </div>
+  
+               <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">Project</label>
+                <select class="form-select" aria-label="Default select example"formControlName="project">
+                  <option selected></option>
+                  <option value="ICTAK">ICTAK</option>
+                  <option value="KKEM">KKEM</option>
+                  <option value="NORKA">NORKA</option>
+                  <option value="ABCD">ABCD</option>
+                  <option value="KDISC">KDISC</option>
+  
+  
+                </select>
+              </div> 
+              <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">Batch</label>
+                <select class="form-select" aria-label="Default select example" formControlName="batch">
+                  <option selected></option>
+                  <option value="May_22">May_22</option>
+                  <option value="Jun_22">Jun_22</option>
+                  <option value="Jul_22">Jul_22</option>
+                  <option value="Aug_22">Aug_22</option>
+                  <option value="Dec_22">Dec_22</option>
+                  <option value="Mar_23">Mar_23</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">Course Status</label>
+                <select class="form-select" aria-label="Default select example"formControlName="coursestatus">
+                  <option selected></option>
+                  <option value="Qualified">Qualified</option>
+                  <option value="Incompetent">Incompetent</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">Placement Status</label>
+                <select class="form-select" aria-label="Default select example"formControlName="placementstatus">
+                  
+                  <option value="Placed">Placed</option>
+                  <option value="Job Seeking">Job Seeking</option>
+                  <option value="Not Intrested">Not Intrested</option>
+                </select>
+              </div>
+             <br>
+            
+           <br>
+            <button type="submit" class="btn btn-primary" (click)="updateLearner()">Submit</button>
+
+          </form>
+      </div>
+  </div>
+</div>
+</div>
