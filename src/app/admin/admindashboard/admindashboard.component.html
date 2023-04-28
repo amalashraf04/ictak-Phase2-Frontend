@@ -8,14 +8,14 @@
     <meta name="generator" content="Hugo 0.84.0">
     <title>Dashboard Template · Bootstrap v5.0</title>
 
-    <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/"> -->
-
-    
-
-    <!-- Bootstrap core CSS -->
-<!-- <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+   
 
     <style>
+      
+
+      .bg-darkblue{
+        background-color: #0e2b35;
+      }
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -29,6 +29,14 @@
           font-size: 3.5rem;
         }
       }
+      .badge{
+        width:140px;
+        height:40px;
+      }
+      .btn-bg{
+        background-color: #0e2b35;
+        color:white;
+      }
     </style>
 
     
@@ -38,7 +46,7 @@
   <body>
     
 <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">ICTAK Learner Tracker</a>
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3">ICTAK Learner Tracker</a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -52,28 +60,23 @@
 
 <div class="container-fluid">
   <div class="row">
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-darkblue sidebar collapse">
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">
+            <a class="nav-link text-white" aria-current="page" href="#">
               <span data-feather="home"></span>
              Admin Dashboard
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/learners">
+            <a class="nav-link text-white" href="/learners">
               <span data-feather="file"></span>
               Learner Dashboard
             </a>
           </li>
           
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="users"></span>
-              Customers
-            </a>
-          </li> -->
+          
           
         </ul>
 
@@ -87,7 +90,8 @@
         <!-- <h1 class="h2">Dashboard</h1> -->
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/add-user">Add User</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary btn-bg" routerLink="/add-user">Add New User</button>
+            
             <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>-->
           </div>
           <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
@@ -97,9 +101,9 @@
         </div>
       </div>
 
-      <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
+       <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>  -->
 
-      <h2>User Data</h2>
+      <!-- <h2>User Data</h2> -->
       <div class="table-responsive">
        
         <div class="container">
@@ -125,7 +129,8 @@
                     
                       <td>{{item.name}}</td>
                       <td>{{item.email}}</td>
-                      <td>{{item.role}}</td>
+                      <td class="badge bg-warning ">{{item.role}}</td>
+                      
                       <td>
                         <ul class="action-list">
                            <td><i class="bi bi-pencil-square text-primary" routerLink="/edit/{{item._id}}"></i></td> 
@@ -152,38 +157,5 @@
   </body>
 </html>
 
-<div class="container">
-    <!-- <h1 class="  text-center mt-5"  id="dboard" >Admin Dashboard</h1> -->
-  
-  <!-- <table class="table table-striped  mt-5">
-    <thead>
-      <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Email</th>
-        <th scope="col">Role</th>
-        <th scope="col">Password</th>
-        
-        
-        <th scope="col">Edit</th>
-        <th scope="col">Delete</th>
-  
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of user" >
-     
-        <td>{{item.name}}</td>
-        <td>{{item.email}}</td>
-        <td>{{item.role}}</td>
-        <td>{{item.password}}</td>
-       
-       <td><i class="bi bi-pencil-square text-primary"(click)="editlearner(item._id)"></i></td>
-        <td><i class="bi bi-trash3-fill text-danger" (click)="deletelearner(item._id)"></i></td> 
-      </tr>   
-    </tbody>
-  </table> -->
-  
-  <button class="btn btn-success" routerLink="/add-user">Add User</button>
-  
-  </div>
+
   
