@@ -26,7 +26,7 @@
               </div>
               <div class="mb-3">
                 <label for="formGroupExampleInput4" class="form-label">Password</label>
-                <input type="text" class="form-control" id="formGroupExampleInput4"  formControlName="password"  >
+                <input type="password" class="form-control" id="formGroupExampleInput4"  formControlName="password"  >
                 <div *ngIf="addUserForm.get('password')?.invalid && addUserForm.get('password')?.touched">
                   <div *ngIf="addUserForm.get('password')?.hasError('required')">Password is required</div>
                   <div *ngIf="addUserForm.get('password')?.hasError('minlength')">Password must be at least 8 characters long</div>
