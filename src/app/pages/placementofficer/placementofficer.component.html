@@ -70,7 +70,7 @@
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2" style="color: rgb(84, 83, 83);"  >DASHBOARD</h1>
-        
+
       </div>
 
       <div class="container">
@@ -98,7 +98,7 @@
             <td class="tabf">{{item. batch}}</td>
             <td class="tabf">{{item. coursestatus}}</td>
             <td class="tabf">{{item. placementstatus}}</td>
-            <td class="tabf"><i class="bi bi-pencil-square text"(click)="editplacementstatus()"></i></td>
+            <td class="tabf"><i class="bi bi-pencil-square text"(click)="editplacementstatus(item._id)"></i></td>
 
           </tr>
         </tbody>

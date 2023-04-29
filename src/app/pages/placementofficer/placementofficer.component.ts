@@ -16,13 +16,13 @@ export class PlacementofficerComponent {
     ngOnInit() {
       this.getData()
     }
-   
+
 
     logout(){
       localStorage.removeItem('token')
       this.route.navigate(['/login']);
     }
-  
+
     getData(){
       this.api.getData().subscribe((res:any)=>{
         console.log("incoming data")
@@ -30,9 +30,9 @@ export class PlacementofficerComponent {
         console.log(this.learner)
       })
     }
-    editplacementstatus(){
+    editplacementstatus(id:any){
 
-      this.route.navigate(['/edit-status-placement'])
+      this.route.navigate(['edit-status-placement',id])
     }
 
 
